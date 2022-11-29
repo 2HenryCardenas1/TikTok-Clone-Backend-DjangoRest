@@ -2,7 +2,7 @@ import os
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
-#Function to get the path of the image and save in the especific path
+#Function to get the path of the image and save in the specific path
 def get_file_path(instance,filename):
     ext = filename.split('.')[-1]
     filename = "%s.%s"%(instance.id,ext)
