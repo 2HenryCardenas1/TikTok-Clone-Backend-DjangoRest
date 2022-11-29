@@ -41,7 +41,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'cloudinary_storage',
     'rest_framework_simplejwt',
-    'users'
+    'django_filters',
+    'users',
+    'video'
 ]
 
 MIDDLEWARE = [
@@ -124,15 +126,18 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
 
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+
+
 
 }
 
-#Configuracion de tiempo de caducidad del token
-SIMPLE_JWT = { 
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=1),
+# Configuracion de tiempo de caducidad del token
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=10),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
- }
+}
 
 
 # Default primary key field type
