@@ -22,7 +22,7 @@ class UserMeView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        serializer = UserSerializer(request.data)
+        serializer = UserSerializer(request.user)
         return Response(serializer.data)
 
 # This view is used to update the user data
