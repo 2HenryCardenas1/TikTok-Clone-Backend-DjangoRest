@@ -18,7 +18,8 @@ class User(AbstractUser):
     description = models.CharField(max_length=100, blank=True)
     website = models.CharField(max_length=100, blank=True)
     instagram = models.CharField(max_length=100, blank=True)
-
+    first_name = models.CharField(max_length=100, blank=True)
+    date_joined = models.DateTimeField(auto_now_add=True)
     # Specific email to login in web, the default is a username.
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
