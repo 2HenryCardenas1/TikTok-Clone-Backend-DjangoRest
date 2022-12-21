@@ -23,3 +23,9 @@ class Video(models.Model):
     share_counter = models.IntegerField(default=0)
     likes_counter = models.IntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
+
+
+class VideoLike(models.Model):
+    user = models.ForeignKey('users.User', on_delete=models.CASCADE)
+    video = models.ForeignKey('video.Video', on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
