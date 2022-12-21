@@ -1,5 +1,4 @@
 from rest_framework import serializers
-
 from users.models import User
 
 # Un serializer se usa para definir que datos mostrar de la peticion a la base de datos
@@ -28,4 +27,4 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ['id', 'username', 'email', 'website',
-                  'instagram', 'avatar', 'description']
+                  'instagram', 'avatar', 'description', 'first_name', 'date_joined']
