@@ -22,6 +22,7 @@ from django.contrib import admin
 from django.urls import include, path
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
+from follow.api.router import router_follow
 from users.api.router import router_user
 from video.api.routes import router_video
 
@@ -53,6 +54,9 @@ urlpatterns = [
     path('api/', include(router_video.urls)),
     # Router de comments
     path('api/', include(router_comment.urls)),
+    # Router de follow
+    path('api/', include(router_follow.urls)),
+    path('api/', include('follow.api.router'))
 
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
