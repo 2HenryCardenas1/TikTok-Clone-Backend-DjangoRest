@@ -20,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -43,7 +43,10 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'django_filters',
     'users',
-    'video'
+    'video',
+    'comment',
+    'follow',
+    'notification'
 ]
 
 MIDDLEWARE = [
@@ -135,7 +138,7 @@ REST_FRAMEWORK = {
 
 # Configuracion de tiempo de caducidad del token
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=10),
+    'ACCESS_TOKEN_LIFETIME': datetime.timedelta(minutes=100),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),
 }
 
