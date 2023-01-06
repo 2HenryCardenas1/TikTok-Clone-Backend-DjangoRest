@@ -4,8 +4,7 @@ from video.models import Video, VideoLike
 
 @admin.register(Video)
 class VideoAdmin(admin.ModelAdmin):
-    list_display = ('id', 'description', 'video', 'image', 'user',
-                    'share_counter', 'likes_counter', 'created_at')
+    list_display = ('id', 'description', 'user', 'created_at')
 
 
 @admin.register(VideoLike)

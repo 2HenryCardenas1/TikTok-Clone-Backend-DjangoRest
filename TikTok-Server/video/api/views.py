@@ -35,7 +35,6 @@ class VideoActionsApiViewSet(ModelViewSet):
 class VideoLikeApiViewSet(ModelViewSet):
     permission_classes = [IsAuthenticated]
     serializer_class = VideoLikeSerializer
-
     queryset = VideoLike.objects.all()
     http_method_names = ['get', 'post', 'delete']
     filter_backends = [DjangoFilterBackend]
