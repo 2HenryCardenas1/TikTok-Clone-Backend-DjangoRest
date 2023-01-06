@@ -1,7 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import gettext_lazy as _
-
 from users.models import User
 
 # Register your models here to saw in the web.
@@ -13,7 +12,7 @@ from users.models import User
 # This class extends the default model django UserAdmin class
 # but we change the parameters the this a model.
 class UserAdmin(BaseUserAdmin):
-    list_display = ['username', 'email', 'first_name', 'last_name', 'is_superuser',
+    list_display = ['id', 'username', 'email', 'first_name', 'last_name', 'is_superuser',
                     'is_staff', 'date_joined']
 
     fieldsets = (
