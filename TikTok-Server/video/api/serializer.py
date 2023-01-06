@@ -1,4 +1,8 @@
+from follow.models import Follow
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
 from rest_framework.serializers import ModelSerializer
+from rest_framework.views import APIView
 from users.api.serializers import UserSerializer
 from video.models import Video, VideoLike
 
@@ -24,3 +28,9 @@ class VideoLikeSerializer (ModelSerializer):
     class Meta:
         model = VideoLike
         fields = ('id', 'user', 'video', 'video_data', 'created_at')
+
+
+class VideoNotificationSerializer(ModelSerializer):
+    class Meta:
+        model = Video
+        fields = ['id', 'image']
