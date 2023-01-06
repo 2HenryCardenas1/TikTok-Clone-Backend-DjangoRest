@@ -1,6 +1,7 @@
+from django.urls import path
 from rest_framework.routers import DefaultRouter
-from video.api.views import (VideoActionsApiViewSet, VideoApiViewSet,
-                             VideoLikeApiViewSet)
+from video.api.views import (GetFollowingsVideosView, VideoActionsApiViewSet,
+                             VideoApiViewSet, VideoLikeApiViewSet)
 
 router_video = DefaultRouter()
 
@@ -14,3 +15,7 @@ router_video.register(prefix='video/actions', basename='video',
 
 router_video.register(prefix='video_like', basename='video',
                       viewset=VideoLikeApiViewSet)
+
+urlpatterns = [
+    path('followings_videos/', GetFollowingsVideosView.as_view())
+]
