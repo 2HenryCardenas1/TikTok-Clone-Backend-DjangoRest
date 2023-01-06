@@ -24,7 +24,7 @@ from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
 from follow.api.router import router_follow
 from users.api.router import router_user
-from video.api.routes import router_video
+from video.api.router import router_video
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -52,6 +52,7 @@ urlpatterns = [
     path('api/', include(router_user.urls)),
     # Router de videos
     path('api/', include(router_video.urls)),
+    path('api/', include('video.api.router')),
     # Router de comments
     path('api/', include(router_comment.urls)),
     # Router de follow
