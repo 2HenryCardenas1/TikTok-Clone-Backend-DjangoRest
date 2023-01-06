@@ -1,6 +1,6 @@
 from django.contrib.auth.hashers import make_password
 from rest_framework import status
-from rest_framework.filters import OrderingFilter
+from rest_framework.filters import OrderingFilter, SearchFilter
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -48,5 +48,6 @@ class UserApiViewSet(ModelViewSet):
     queryset = User.objects.all()
 
     http_method_names = ['get']
-    filter_backends = [OrderingFilter]
+    filter_backends = [OrderingFilter, SearchFilter]
     ordering = ['-date_joined']
+    search_fields = ['username']
